@@ -1,0 +1,17 @@
+{
+  "name": "helloworldtruffle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Richard Macarthy <richardmacarthy@hotmail.com> (http://www.cryptogrind.com)",
+  "license": "ISC",
+  "dependencies": {
+    "web3": "^0.19.1"
+  },
+  "devDependencies": {
+    "web3-typescript-typings": "0.0.11"
+  }
+}
