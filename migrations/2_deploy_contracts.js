@@ -2,6 +2,7 @@ var ConvertLib = artifacts.require("./ConvertLib.sol");
 var MetaCoin = artifacts.require("./MetaCoin.sol");
 var HelloWorld = artifacts.require("./HelloWorld.sol");
 var EternalStorage = artifacts.require("./EternalStorage.sol");
+var TodoContract = artifacts.require("./TodoContract.sol");
 
 module.exports = function(deployer) {
   deployer.deploy(ConvertLib);
@@ -9,4 +10,5 @@ module.exports = function(deployer) {
   deployer.deploy(MetaCoin);
   deployer.deploy(HelloWorld);
   deployer.deploy(EternalStorage);
+  deployer.deploy(TodoContract);
 };

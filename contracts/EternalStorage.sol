@@ -53,7 +53,7 @@ contract EternalStorage{
     {
         BooleanStorage[record] = value;
     }
-    
+
     function getIntValue(bytes32 record) constant returns (int){
         return IntStorage[record];
     }

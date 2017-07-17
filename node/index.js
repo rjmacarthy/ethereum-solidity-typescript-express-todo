@@ -1,15 +1,38 @@
-var Web3 = require('web3');
-var web3 = new Web3();
-var contractBuild = require('../build/contracts/HelloWorld.json');
-var contractAddress = '0x995addc1eb6ee4e72b78175ac17a36d8556dd46b';
+const Web3 = require('web3');
+const abi = require('../build/contracts/TodoContract.json');
+const program = require('commander');
+var colors = require('colors');
+var truffleContract = require('truffle-contract');
+var contract = require('truffle-contract');
 
-web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
+var provider = new Web3.providers.HttpProvider("http://localhost:8545");
+const web3 = new Web3(provider);
+var todoContract = contract(abi);
 
-web3.eth.defaultAccount = web3.eth.coinbase;
+todoContract.setProvider(provider);
 
-var contract = web3.eth.contract(contractBuild.abi).at(contractAddress);
+todoContract.deployed().then((instance) => {
+    const app = instance;
+    
+    program
+        .version('0.0.1')
+        .command('add-todo [todoName]')
+        .description('Add a new todo')
+        .action((todoName) => {
+            console.log(web3.eth.accounts[0]);
+            app.addTodo(todoName, {
+                from: web3.eth.accounts[0]
+            }).then(() => {
+                console.log(colors.green('Adding todo with name %s'), todoName)
+            });
+        });
 
-contract.setMessage('pimpin');
+    program.command('list-todos')
+        .description('List contract todos')
+        .action(() => {
+            app.getTodos().then((todos) => console.log(todos));
+            console.log(colors.green('Listing Todos'));
+        });
 
-console.log(contract.message.call());
-
+    program.parse(process.argv);
+});
