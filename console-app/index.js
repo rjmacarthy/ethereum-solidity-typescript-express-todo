@@ -53,21 +53,19 @@ todoContract.deployed().then((instance) => {
             });
         });
 
-    // program
-    //     .version('0.0.1')
-    //     .command('complete [todoId]')
-    //     .description('Complete a todo')
-    //     .action((todoId) => {
-    var todoId = '1';
-    console.log(colors.green('Completing todo with id: %s'), todoId);
-    app.completeTodo(todoId, {
-        from: web3.eth.accounts[0]
-    }).then(() => {
-        console.log("Success!");
-    }).catch(()=>{
-        debugger;
-    });
-    // });
+    program
+        .version('0.0.1')
+        .command('complete [todoIndex]')
+        .description('Complete a todo')
+        .action((todoId) => {
+            var todoId = '1';
+            console.log(colors.green('Completing todo with index: %s'), todoIndex);
+            app.completeTodo(todoIndex, {
+                from: web3.eth.accounts[0]
+            }).then(() => {
+                console.log("Success!");
+            });
+        });
 
     program.parse(process.argv);
 });
