@@ -1,21 +1,15 @@
 pragma solidity ^0.4.4;
 
 contract TodoContract {
-
   Todo[] public todos;
   address public owner;
-  uint initialId = 1;
   
   struct Todo {
     uint id;
     bytes32 name;
     bool completed;
   }
-
-  function TodoContract() {
-
-  }
-
+  
   function addTodo(bytes32 todoName) returns (bool) {
     uint id = todos.length + 1;
     todos.push(Todo(id, todoName, false));
