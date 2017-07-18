@@ -1,2 +1,6 @@
 node_modules
 build
+.vs
+.idea
+server/node_modules
+console-app/node_modules

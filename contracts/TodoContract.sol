@@ -22,28 +22,25 @@ contract TodoContract {
     return true;
   }
 
-  function completeTodo (uint todoId) returns (bool) {
-    for(uint i = 0; i <= todos.length; i++) {
-      if(todos[i].id == todoId){
-        todos[i].completed = true;
-      }
+  function completeTodo(uint todoIndex) returns (bool) {
+    if(todos[todoIndex].name.length > 0){
+        todos[todoIndex].completed = true;
+        return true;
+    } else {
+        revert();
     }
-    return true;
   }
 
   function getTodos() constant returns (uint[], bytes32[], bool[]) {
      uint length = todos.length;
-
      uint[] memory ids = new uint[](length);
      bytes32[] memory names = new bytes32[](length);
      bool[] memory completeds = new bool[](length);
-
      for (uint i = 0; i < length; i++) {
        ids[i] = todos[i].id;
        names[i] = todos[i].name;
        completeds[i] = todos[i].completed;
      }
-
      return (ids, names, completeds);
    }
 }

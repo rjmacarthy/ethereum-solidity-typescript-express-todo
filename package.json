@@ -1,0 +1,19 @@
+{
+  "name": "solidity-typescript-express-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjmacarthy/smart-contract-testing.git"
+  },
+  "author": "Richard Macarthy <richardmacarthy@hotmail.com> (http://www.cryptogrind.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rjmacarthy/smart-contract-testing/issues"
+  },
+  "homepage": "https://github.com/rjmacarthy/smart-contract-testing#readme"
+}
