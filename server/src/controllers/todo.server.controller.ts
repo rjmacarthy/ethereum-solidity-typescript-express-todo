@@ -12,7 +12,6 @@ export default class IndexController {
     static from = { from: web3.eth.accounts[0] };
 
     public static add(req: Request, res: Response, next: Function): void {
-        console.log(todoInstance);
         todoInstance().then((contract: any) => {
             contract.addTodo(req.params.todoName, IndexController.from).then(() => {
                 res.json({
@@ -24,7 +23,6 @@ export default class IndexController {
     }
 
     public static list(req: Request, res: Response, next: Function) {
-        console.log(todoInstance);
         todoInstance().then((contract: ITodoContractInstance) => {
             contract.getTodos().then((response) => {
                 var len = 0;
