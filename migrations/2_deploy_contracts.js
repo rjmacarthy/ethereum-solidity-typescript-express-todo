@@ -1,5 +1,5 @@
-var TodoContract = artifacts.require("./TodoContract.sol");
+var LoversBridge = artifacts.require("./LoversBridge.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(TodoContract);
+  deployer.deploy(LoversBridge);
 };

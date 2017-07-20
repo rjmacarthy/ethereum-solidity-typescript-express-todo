@@ -1,0 +1,6 @@
+<div style="text-align:center">
+  <input [(ngModel)]="message.firstName" #ctrl="ngModel" required>
+  <input [(ngModel)]="message.lastName" #ctrl="ngModel" required>
+  <input [(ngModel)]="message.message" #ctrl="ngModel" required>
+  <button (click)="addMessage()">Add message</button>
+</div>

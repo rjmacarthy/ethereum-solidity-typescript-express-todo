@@ -5,3 +5,4 @@ build
 .vscode
 server/node_modules
 console-app/node_modules
+personal.txt
